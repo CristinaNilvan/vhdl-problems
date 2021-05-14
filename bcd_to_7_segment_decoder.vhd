@@ -11,7 +11,7 @@ architecture DECODER of BCD_TO_7_SEGMENT is
  type segment_type is array (0 to 9) of std_logic_vector(6 downto 0);
 
  signal displayed : segment_type := ("0000001", "1001111", "0010010", "0000110", 
-		"1001100", "0100100", "0100000", "0001111", "1111111", "0000100");	
+		"1001100", "0100100", "0100000", "0001111", "0000000", "0000100");	
 	
 begin
 	process(led_bcd)
@@ -27,7 +27,7 @@ begin
 			when "0111" => led_out <= displayed(7); 	
 			when "1000" => led_out <= displayed(8); 	
 			when "1001" => led_out <= displayed(9); 	 
-			when others => led_out <= "0000000";  	
+			when others => led_out <= "1111111";  	
 		end case;
 	end process;
 end architecture;
