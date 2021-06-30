@@ -29,13 +29,9 @@ begin
 	begin
 		if (set = '1') then
 			auxiliary_signal <= '1';
-		end if;
-		
-		if (reset = '1') then
+		elsif (reset = '1') then
 			auxiliary_signal <= '0';
-		end if;	   
-		
-		if (clock = '1' and clock'event) then
+		elsif (clock = '1' and clock'event) then
 			if (j = '0') then
 				if (k = '0') then
 					null;
